@@ -5,11 +5,12 @@ import path from 'path';
 
 export default defineConfig(({ mode }) => {
   const envs = loadEnv(mode, process.cwd(), '');
-  const { VITE_PORT } = envs;
+  const { VITE_PORT, VITE_APP_BASENAME } = envs;
 
   return {
     plugins: [react()],
     server: {
+      open: VITE_APP_BASENAME,
       port: +VITE_PORT,
     },
     resolve: {
