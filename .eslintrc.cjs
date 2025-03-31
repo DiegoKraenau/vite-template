@@ -19,8 +19,26 @@ module.exports = {
   plugins: ['@typescript-eslint', 'react', 'react-hooks', 'jsx-a11y'],
   rules: {
     'react/react-in-jsx-scope': 'off',
-    'import/extensions': ['error', 'ignorePackages', { tsx: 'never', ts: 'never' }],
     'react/jsx-filename-extension': ['error', { extensions: ['.tsx'] }],
     'no-console': 'warn',
+    'react/function-component-definition': [
+      'error',
+      {
+        namedComponents: 'arrow-function',
+        unnamedComponents: 'arrow-function',
+      },
+    ],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        '': 'never',
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
   },
+  ignorePatterns: ['vite-env.d.ts', 'node_modules/', 'dist/'],
 };
