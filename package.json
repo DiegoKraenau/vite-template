@@ -4,18 +4,25 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start:dev": "vite --mode development",
-    "start:prod": "vite --mode production",
-    "build": "tsc -b && vite build",
+    "start": "vite --mode development",
+    "start:ci": "vite --mode production",
+    "build": "tsc -b && vite build --mode development",
+    "build:ci": "tsc -b && vite build --mode production",
     "lint": "eslint . --ext ts,tsx",
     "format": "prettier --write .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "check": "lint-staged && npm run build:ci"
   },
   "dependencies": {
+    "@types/react-modal": "^3.16.3",
     "@types/react-router-dom": "^5.3.3",
+    "@types/sass": "^1.43.1",
+    "immer": "^9.0.21",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router-dom": "^6.30.0"
+    "react-modal": "^3.16.3",
+    "react-router-dom": "^6.30.0",
+    "sass": "^1.86.1"
   },
   "devDependencies": {
     "@types/node": "^22.13.14",
@@ -35,8 +42,15 @@
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^4.6.2",
     "globals": "^15.15.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.5.0",
     "prettier": "^3.5.3",
     "typescript": "^5.5.3",
     "vite": "^6.2.0"
+  },
+  "lint-staged": {
+    "*.js": "eslint --fix",
+    "*.ts": "eslint --fix",
+    "*.tsx": "eslint --fix"
   }
 }

@@ -18,5 +18,16 @@ export default defineConfig(({ mode }) => {
         '@': path.resolve(__dirname, 'src'),
       },
     },
+    build: {
+      target: 'esnext',
+      outDir: 'dist',
+      sourcemap: mode === 'development',
+      minify: 'esbuild',
+      cssCodeSplit: true,
+      brotliSize: false,
+    },
+    optimizeDeps: {
+      include: ['react', 'react-dom'],
+    },
   };
 });

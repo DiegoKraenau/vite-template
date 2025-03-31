@@ -39,6 +39,10 @@ module.exports = {
         tsx: 'never',
       },
     ],
+    'import/prefer-default-export': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    'react/require-default-props': 'off',
+    'react/button-has-type': 'off',
   },
   ignorePatterns: ['vite-env.d.ts', 'node_modules/', 'dist/'],
 };
